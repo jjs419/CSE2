@@ -28,7 +28,7 @@ import java.util.Scanner; //importing the Scanner class for use
                     System.out.print("Enter the number of people that ate dinner: "); //asking for # of ways to split the check
                     int numPeople = myScanner.nextInt();
                     
-                    //Now all input in collected
+                    //Now all input is collected
                 
                 //Begin calculations
                 
