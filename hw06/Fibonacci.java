@@ -1,6 +1,6 @@
 //Jay Scudder
 //Mar 6, 2016
-//homework 6
+//homework 6: Fibonacci
 //program intended to take input number and create a fibonacci sequence of a desired length
 
 import java.util.Scanner; //Importing the Scanner method for use
