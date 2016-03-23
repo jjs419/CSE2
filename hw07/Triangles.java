@@ -36,17 +36,17 @@ public class Triangles{
         int i = 0;
         int j = 0;
         
-        System.out.println("For loop: ");
-        for(i=1;i<=value;i++){
+        System.out.println("For loop: "); //showing which loop is being used
+        for(i=1;i<=value;i++){ //this loop controls what line of the first half we are on
             
-            for(j=i;j>0;j--){
+            for(j=i;j>0;j--){ //this controls how many times the number is printed
                 System.out.print(i);
             }
             System.out.println("");
         }
-        for(i=(value-1);i>=1;i--){
+        for(i=(value-1);i>=1;i--){ //this loop controls what line of the second half we are on
             
-            for(j=i;j>0;j--){
+            for(j=i;j>0;j--){ //this controls how many times the number is printed
                 System.out.print(i);
             }
             System.out.println("");
@@ -54,10 +54,10 @@ public class Triangles{
         
         System.out.println("");
         System.out.println("While loop: ");
-        while(i<=value){
+        while(i<=value){ //this loop controls what line of the first half we are on
             
             j = i;
-            while(j>0){
+            while(j>0){ //this controls how many times the number is printed
                 System.out.print(i);
                 j--;
             }
@@ -65,10 +65,10 @@ public class Triangles{
             i++;
         }
         i = (value-1);
-        while(i>=1){
+        while(i>=1){ //this loop controls what line of the second half we are on
             
             j = i;
-            while(j>0){
+            while(j>0){ //this controls how many times the number is printed
                 System.out.print(i);
                 j--;
             }
@@ -81,29 +81,29 @@ public class Triangles{
         i = 1;
         j = 1;
         
-        do{
+        do{ //this loop controls what line of the first half we are on
             j = i;
-            do{
+            do{ //this controls how many times the number is printed
                 System.out.print(i);
                 j--;
             }
-            while(j>0);
+            while(j>0); //condition
             System.out.println("");
             i++;
         }
-        while(i<=value);
+        while(i<=value); //condition
         
         i = (value-1);
-        do{
+        do{ //this loop controls what line of the second half we are on
             j = i;
-            do{
+            do{ //this controls how many times the number is printed
                 System.out.print(i);
                 j--;
             }
-            while(j>0);
+            while(j>0); //condition
             System.out.println("");
             i--;
         }
-        while(i>=1);
-    }
-}
+        while(i>=1); //condition
+    } //end of main method
+} //end of class

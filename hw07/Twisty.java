@@ -50,21 +50,21 @@ public class Twisty{
             }
         } //end of while loop
         
-        int i = 0;
-        int j = 0;
-        int x = 0;
-        int y = 0;
+        int i = 0; //initializing variables for use as counters in for loops
+        int j = 0; //
+        int x = 0; //
+        int y = 0; //
         
-        for(i=0;i<width;i++){
+        for(i=0;i<width;i++){ //for loop that controls the placement of characters vertically
             
-            for(j=0;j<length;j++){
+            for(j=0;j<length;j++){ //for loop that controls the placement of characters horizontally
                 
-                x = j/width;
-                y = j%width;
+                x = j/width; //changing the value of these variables to be specific to the inputs
+                y = j%width; //
                 
-                if(y==i){
+                if(y==i){ //set of conditions that determines what character needs to be printed
                     if(x%2==0){
-                        System.out.print("#");
+                        System.out.print("#"); 
                     }
                     else{
                         System.out.print("\\");
@@ -82,13 +82,8 @@ public class Twisty{
                     System.out.print(" ");
                 }
             }
-            System.out.println(""); 
+            System.out.println(""); //sends the program to the next line 
         }
-        
-        
-        
-        
-        
-        
-    }
-}
+    
+    } //end of main method
+} //end of class
