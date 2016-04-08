@@ -17,31 +17,31 @@ public class Arrays{
                 
         Scanner myScanner = new Scanner( System.in ); //Declaring an instance of Scanner
         Random randomGenerator = new Random(); //creating random object
-        int numNames = randomGenerator.nextInt(5) + 5;
-        String nextName = "";
+        int numNames = randomGenerator.nextInt(5) + 5; //random number of names between 5 and 10
+        String nextName = ""; //initializing variable
         
-        String[] students = new String[numNames];
+        String[] students = new String[numNames]; //declaring an array of strings called students
         
-        System.out.println("This array contains " + numNames + " names.");
+        System.out.println("This array contains " + numNames + " names."); //telling the user how many entries there are
         
-        int i = 0;
+        int i = 0; //initializing variable
         
-        for(i=0;i<numNames;i++){
+        for(i=0;i<numNames;i++){ //for loop to prompt the user for names
             System.out.print("Please enter a name: ");
             nextName = myScanner.next();
-            students[i] = nextName;
+            students[i] = nextName; //initalizing data in the array for each name the user inputs
         }
         
-        int[] midterm = new int[numNames];
+        int[] midterm = new int[numNames]; //declaring an array of integers called midterm
         
         for(i=0;i<numNames;i++){
-            midterm[i] = (int) (Math.random()*100);
+            midterm[i] = (int) (Math.random()*100); //initializing data in midterm as random integers between 0 and 100
         }
         
         System.out.println("The midterm grades of the students you entered are: ");
         
         for(i=0;i<numNames;i++){
-            System.out.println(students[i] + ": " + midterm[i]);
+            System.out.println(students[i] + ": " + midterm[i]); //printing out the list of names and grades associated with them
         }
         
     }
