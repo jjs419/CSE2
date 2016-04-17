@@ -8,86 +8,86 @@ public class CSE2Linear{ //define class
     
     public static void main(String[] args){ //main method
         
-        Scanner myScanner = new Scanner( System.in );
-        int[] studentGrades = new int[15];
-        int i = 0;
-        int grade = 0;
-        boolean valid = false;
+        Scanner myScanner = new Scanner( System.in ); //instance of scanner
+        int[] studentGrades = new int[15]; //allocating new list
+        int i = 0;             //initializing
+        int grade = 0;         //
+        boolean valid = false; //
         
-        for(i=0;i<15;i++){
+        for(i=0;i<15;i++){ //to assign each member of the list
             
-            while(!valid){
+            while(!valid){ //while the entered grade is not valid
                 
-                System.out.print("Enter a grade: ");
+                System.out.print("Enter a grade: "); //prompt
                 
-                if(myScanner.hasNextInt()){
+                if(myScanner.hasNextInt()){ //if the input is an integer
                     
-                    grade = myScanner.nextInt();
+                    grade = myScanner.nextInt(); //assign grade to the input
                     
-                    if(grade < 0 || grade > 100){
+                    if(grade < 0 || grade > 100){ //if not in valid range
                         System.out.println("Error: You must enter an integer within 0 and 100.");
                     }
                     
-                    if(i>0 && grade < studentGrades[i-1]){
+                    if(i>0 && grade < studentGrades[i-1]){ //after the first grade, if the input is less than the previous input
                         System.out.println("Error: You must enter a grade greater than the previous grade.");
                     }
                     
-                    else{
+                    else{ //if none of the invalid conditions were satisfied, set the member equal to the input grade
                         studentGrades[i] = grade;
-                        valid = true;
+                        valid = true; //the input is valid
                     }
                 }
                 
-                else{
+                else{ //if the input is not an integer
                     System.out.println("Error: You must enter an integer.");
-                    String trash = myScanner.next();
+                    String trash = myScanner.next(); //trash variable to get rid of the input
                 }
             }
-            valid = false;
+            valid = false; //resets valid for the next member of the list
         }
         
         System.out.println("The list is:");
-        for(i=0;i<15;i++){
+        for(i=0;i<15;i++){ //prints the full list
             System.out.println(studentGrades[i]);
         }
         
-        System.out.print("Enter a grade to be searched for: ");
-        int searchGrade = myScanner.nextInt();
-        boolean found = false;
+        System.out.print("Enter a grade to be searched for: "); //prompt
+        int searchGrade = myScanner.nextInt(); //initializing
+        boolean found = false;                 //
         
-        for(i=0;i<15;i++){
-            if(studentGrades[i] == searchGrade){
+        for(i=0;i<15;i++){ //check each member in order
+            if(studentGrades[i] == searchGrade){ //if the grade was found
                 System.out.println("The grade was found after " + (i+1) + " iterations.");
                 found = true;
             }
-            if(!found && i == 14){
+            if(!found && i == 14){ //if it was not found
                 System.out.println("The grade was not found after 15 iterations.");
             }
         }
         
-        int temp = 0;
-        int j = 0;
+        int temp = 0; //initializing
+        int j = 0;    //initializing
         
-         for(j=1;j<=10;j++){
-            for(i=1;i<15;i++){
-                if(Math.random() <= .5){
-                    temp = studentGrades[i-1];
-                    studentGrades[i-1] = studentGrades[i];
-                    studentGrades[i] = temp;
+         for(j=1;j<=10;j++){ //repeat the scrambling process 10 times
+            for(i=1;i<15;i++){ //for each member of the list
+                if(Math.random() <= .5){ //~half the time it swaps two members
+                    temp = studentGrades[i-1]; //set the temp variable equal to the value of the previous member
+                    studentGrades[i-1] = studentGrades[i]; //set the previous member value to the current member value
+                    studentGrades[i] = temp; //set the current member value to the temp value, which is the previous member value
                 }
             }
          }
         
         System.out.println("The scrambled list is:");
         for(i=0;i<15;i++){
-            System.out.println(studentGrades[i]);
+            System.out.println(studentGrades[i]); //print new list
         }
         
-        System.out.print("Enter a grade to be searched for: ");
+        System.out.print("Enter a grade to be searched for: "); //prompt
         searchGrade = myScanner.nextInt();
-        found = false;
+        found = false; //initializing
         
-        for(i=0;i<15;i++){
+        for(i=0;i<15;i++){ //same search as before
             if(studentGrades[i] == searchGrade){
                 System.out.println("The grade was found after " + (i+1) + " iterations.");
                 found = true;
