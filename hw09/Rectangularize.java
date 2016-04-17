@@ -33,8 +33,6 @@ public class Rectangularize{
         
         for(i=0;i<square;i++){ //for loop that controls what line the program is on
             
-            j = 0;
-            
             for(j=0;j<square;j++){ //for loop that controls how many times % is printed
                 System.out.print("%");
             }

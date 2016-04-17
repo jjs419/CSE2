@@ -55,65 +55,65 @@ public class RemoveElements{
 	    return out;
     }
     
-    public static int[] randomInput(){
-        int[] array = new int[10];
-        Random randomGenerator = new Random();
+    public static int[] randomInput(){ //method returns an array of random ints
+        int[] array = new int[10]; //allocating size
+        Random randomGenerator = new Random(); //random object
         
         for(int i=0;i<10;i++){
-            array[i] = randomGenerator.nextInt(10);
+            array[i] = randomGenerator.nextInt(10); //sets each member of the array to a random int [0-9]
         }
-        return array;
+        return array; //returns the finished array
     }
     
-    public static int[] delete(int[] list, int pos){
+    public static int[] delete(int[] list, int pos){ //accepts and array and an integer, returns array
         
-        if( pos > 9 || pos < 0){
+        if( pos > 9 || pos < 0){ //checking to see if the index choice is within valid range
             System.out.println("The index is not valid.");
-            return list;
+            return list; //return unchanged list if index invalid
         }
-        int[] newList = new int[9];
-        int i = 0;
+        int[] newList = new int[9]; //allocate a new list of size 1 less than original
+        int i = 0; //initializing variable
         
         for(i=0;i<pos;i++){
-            newList[i] = list[i];
+            newList[i] = list[i]; //assigning each member of the original list to the new list up until the input index
         }
         
-        for(i=pos;i<9;i++){
+        for(i=pos;i<9;i++){ //starting at the input index, skip over the number in [pos] when assigning
             newList[i] = list[i+1];
         }
         
-        return newList;
+        return newList; //returns the new list with the [pos] member removed
     }
     
-    public static int[] remove(int[] list, int target){
+    public static int[] remove(int[] list, int target){ //accepts array and int, returns array
         
-        int i = 0;
-        int j = 0;
-        int numTargets = 0;
+        int i = 0;          //initializing
+        int j = 0;          //
+        int numTargets = 0; //
         
-        for(i=0;i<10;i++){
-            if(list[i] == target){
+        for(i=0;i<10;i++){ 
+            if(list[i] == target){ //counts how many times the target appears in the array
                 numTargets++;
             }
         }
         
-        int[] newList = new int[10-numTargets];
-        boolean assigned = false;
+        int[] newList = new int[10-numTargets]; //new list that is as big as the original minus all members that are the target
+        boolean assigned = false; //initializing
         
-        for(i=0;i<(10-numTargets);i++){
-            while(!assigned){
-                while(j<10){
-                    if(list[j] != target){
+        for(i=0;i<(10-numTargets);i++){ //for each member of the new list...
+            while(!assigned){ //continues to run until the current member of the new list is assigned a value
+                while(j<10){ //loops through the original list
+                    if(list[j] != target){ //if the current member of the original list is not a target number, then assign the value to the new list member
                         newList[i] = list[j];
                         assigned = true;
                         j++;
-                        break;
+                        break; //breaks out of the inner most while once the newList member is assigned so that the first for loop can interate to the next newList member
                     }
                     j++;
                 }
             }
-            assigned = false;
+            assigned = false; //resets assigned variable for the next member of newList
         }
-        return newList;
+        return newList; //return the end product with targets removed
     }
 }
