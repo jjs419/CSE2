@@ -54,14 +54,30 @@ public class CSE2Linear{ //define class
         System.out.print("Enter a grade to be searched for: "); //prompt
         int searchGrade = myScanner.nextInt(); //initializing
         boolean found = false;                 //
+        int middle = 0;                        //
+        int end = 14;                           //
+        int beginning = 0;                     //
+        int iterations = 1;                    //
         
-        for(i=0;i<15;i++){ //check each member in order
-            if(studentGrades[i] == searchGrade){ //if the grade was found
-                System.out.println("The grade was found after " + (i+1) + " iterations.");
+        while(!found){ //while the number is not found
+            
+            middle = (int) ((end-beginning)/2 + beginning); //sets the index to be looked at
+            if(studentGrades[middle] == searchGrade){ //if the index being looked at is the search number
+                System.out.println("The number was found in the list after " + iterations + " iterations.");
                 found = true;
+                break;
             }
-            if(!found && i == 14){ //if it was not found
-                System.out.println("The grade was not found after 15 iterations.");
+            else if(studentGrades[middle] > searchGrade){ //if the index being looked at is larger than the search
+                end = middle - 1; //changes the array length to the first half
+                iterations++;
+            }
+            else if(studentGrades[middle] < searchGrade){ //if the index being looked at is shorter than the search
+                beginning = middle + 1; //changes the array length to the second half
+                iterations++;
+            }
+            else if(end == beginning){ //if the value was not found
+                System.out.println(searchGrade + " was not found in the list.");
+                break;
             }
         }
         
